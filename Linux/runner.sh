@@ -14,7 +14,7 @@ echo this script will ask you for your sudo password.
 echo please enter it now
 sudo echo thank you, resuming...
 
-for i in {1..20}
+for i in {1..8}
 do
   sudo tcpdump -w temp"$i".pcap &
 

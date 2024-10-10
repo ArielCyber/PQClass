@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 from nfstream import NFStreamer
 import TDL
@@ -49,9 +50,9 @@ def main() -> None:
             for entry in it:
                 if entry.is_dir() and entry.name.isdigit():
                     tdl(entry.path)
-    delete_files(cwd, '.0.csv')
+    delete_files(cwd, r'\.0\.csv')
     merge_csv_files(cwd)
-    delete_files(cwd, '[0-9]{3}.csv')
+    delete_files(cwd, r'[0-9]{3}\.csv')
 
 
 if __name__ == "__main__":
