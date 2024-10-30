@@ -45,4 +45,5 @@ Signal,
 PQ Chat, 
 Hybrid PQ VPN, 
 Sunary, 
-Sunbeam
+Sunbeam, 
+Zoom
