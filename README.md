@@ -1,6 +1,6 @@
 # PQClass
 
-PQClass - Classification of Operation Systems and Browsers using Post-Quantum Cryptography Algorithms.
+Classification of Operation Systems and Browsers using Post-Quantum Cryptography Algorithms.
 
 ## Folder Structure
 
@@ -20,18 +20,14 @@ PQC:
 Browsers:
 10 - FireFox
 20 - Chrome
-30 - Safari
-40 - iMessage
 
 OS:
 200 - Windows
 300 - Linux
 400 - MacOS
-500 - Android
-600 - iOS
 
 Examples:
-521 - Android/Chrome/Using PQC
+311 - Linux/Firefox/Using PQC
 420 - Mac/Chrome/Not Using PQC
 ```
 
