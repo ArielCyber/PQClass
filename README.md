@@ -67,6 +67,8 @@ We're running the models and analyzing the data using [python](https://www.pytho
 3. Run the `model-runnnner.py` - this step will train and test each model on the data generated in the previous step.
 4. Run the `plotter.py` in the `ICC/` directory - this step will create graph of the accuracy over packet number for each model.
 
-## Applications
+## Applications using PQC
 
-iMessage, Signal, PQ Chat, Hybrid PQ VPN, Sunary, Sunbeam, Zoom
+[iMessage](https://security.apple.com/blog/imessage-pq3/)
+[Signal](https://signal.org/docs/specifications/pqxdh/)
+[Zoom](https://news.zoom.us/post-quantum-e2ee/)
