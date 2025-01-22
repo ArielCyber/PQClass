@@ -8,17 +8,19 @@ import ast
 import re
 
 
-def tdl(dir: str) -> None:
+def tdl(dir: str, num_of_pcaps: int, num_of_packets: int) -> None:
     all_files = []
     with os.scandir(dir) as it:
-        for entry in it:
+        for i, entry in enumerate(it):
+            if i == num_of_pcaps:
+                break
             streamer = NFStreamer(source=entry.path, udps=TDL.TDL())
             for _ in streamer:
                 streamer.to_csv(path=f'{entry.name}.csv', flows_per_file=1)
                 df = pd.read_csv(f'{entry.name}.0.csv')
                 my_list = ast.literal_eval(df.iloc[0]["udps.ip_TDL"])
                 my_list = [str(i) for i in my_list]
-                all_files.append(my_list[0:20])
+                all_files.append(my_list[0:num_of_packets])
     new_df = pd.DataFrame(all_files)
     new_df["label"] = dir[-3:]
     new_df.to_csv(f'all_files_{dir[-3:]}.csv')
@@ -31,7 +33,7 @@ def delete_files(cwd: str, ext1: str) -> None:
                 os.remove(entry.path)
 
 
-def merge_csv_files(cwd):
+def merge_csv_files(cwd, num_of_pcaps: int, num_of_packets: int) -> None:
     merged_df = pd.concat(
         [pd.read_csv(f)
          for f in os.listdir(cwd)
@@ -39,20 +41,26 @@ def merge_csv_files(cwd):
     )
     merged_df = merged_df.drop(columns=['Unnamed: 0'])
     merged_df = merged_df.reset_index(drop=True)
-    merged_df.to_csv('all_files.csv')
+    merged_df.to_csv(f'all-files-with-{num_of_pcaps}-pcaps-with-{num_of_packets}-packets.csv')
 
 
-def main() -> None:
+def runner(num_of_pcaps: int, num_of_packets: int) -> None:
     cwd = os.getcwd()
-    operating_systems = ['windows', 'linux', 'macos', 'ios']
+    operating_systems = ['windows', 'linux', 'macos'] #  , 'ios']
     for os_name in operating_systems:
         with os.scandir(f'../{os_name}') as it:
             for entry in it:
                 if entry.is_dir() and entry.name.isdigit():
-                    tdl(entry.path)
+                    tdl(entry.path, num_of_pcaps, num_of_packets)
     delete_files(cwd, r'\.0\.csv')
-    merge_csv_files(cwd)
+    merge_csv_files(cwd, num_of_pcaps, num_of_packets)
     delete_files(cwd, r'[0-9]{3}\.csv')
+
+
+def main() -> None:
+    # for pcaps in range(10, 101, 10):
+    for packets in [1, 5, 10, 15, 20]:
+        runner(100, packets)
 
 
 if __name__ == "__main__":
