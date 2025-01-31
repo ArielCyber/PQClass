@@ -77,5 +77,5 @@ We run the models and analyze the data using [python](https://www.python.org/).
 > Run the automation script in each folder on their corresponding operating system.
 
 1. Run the automation script (`runner`) for each operating system, and wait until it finishes running.
-2. Run the `tdl-runner.py` in the `TDL/` directory — this step will generate a `.csv` file with all the processed data from the pcaps you've recorded before.
+2. Run the `tdl_runner.py` in the `TDL/` directory — this step will generate a `.csv` file with all the processed data from the pcaps you've recorded before.
 3. Run `model-runner.py` in the main directory. This step trains and tests each model using the data generated in the previous step.
