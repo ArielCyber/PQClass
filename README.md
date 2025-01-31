@@ -10,7 +10,7 @@ The TDL folder contains a script that extracts the needed data (Time, Direction,
 
 ## TDL
 
-Inside each `.csv` file in the `TDL/` directory, each line represents a flow, each cell represents a packet and is a list of 3 values.
+Inside each `.csv` file in the `TDL/` directory, each line represents a flow, each cell represents a packet, and is a list of 3 values.
 - T: relative time (the time from the start of the flow to the current packet being sent in milliseconds).
 - D: direction (0 - packet from the client to the server, 1 - packet from the server to the client).
 - L: length (the size of the packet in bytes).
