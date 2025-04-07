@@ -1,0 +1,7 @@
+scapy==2.6.1
+selenium==4.31.0
+webdriver_manager==4.0.2
+numpy==2.2.3
+pandas==2.2.3
+scikit_learn==1.5.2
+xgboost==2.1.4
