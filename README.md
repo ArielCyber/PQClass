@@ -73,7 +73,7 @@ We run the models and analyze the data using [python](https://www.python.org/).
 > All the steps below take a few minutes to complete, so don't worry and be patient.
 
 > [!IMPORTANT]
-> To change the Key-Exchange PQC algorithm in firefox you must use an appropriate Firefox version, see further in [here](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-support/).
+> To change the Key-Encapsulation PQC algorithm in Firefox, you must use an appropriate Firefox version, see further in [here](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-support/).
 
 1. Run the automation script (`processor.py`) on each operating system, and wait until it finishes running - it will automatically create the corresponding directory.  
 
