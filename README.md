@@ -14,6 +14,40 @@
 
 Classification of Operation Systems and Browsers using Post-Quantum Cryptography Algorithms.
 
+> [!IMPORTANT]
+> For a more user friendly experience please switch to the feature/os-agnostic branch.
+
+## Quick start
+
+> [!NOTE]
+> All the steps below take a few minutes to complete, so don't worry and be patient.
+
+> [!IMPORTANT]
+> Run the automation script in each folder on their corresponding operating system.
+
+1. Run the automation script (`runner`) for each operating system, and wait until it finishes running.
+
+for linux/macos:
+
+```bash
+bash runner.sh
+```
+
+for windows: make sure you already have [AutoHotKey](https://www.autohotkey.com/) installed on your pc, and right click on the `runner.ahk` script and select run.
+
+2. Run the `tdl_runner.py` in the `TDL/` directory — this step will generate a `.csv` file with all the processed data from the pcaps you've recorded before.
+
+```bash
+cd TDL/
+python tdl_runner.py
+```
+
+3. Run `model-runner.py` in the main directory. This step trains and tests each model using the data generated in the previous step.
+
+```bash
+python model-runner.py
+```
+
 ## Folder Structure
 
 Each folder contains `.pcap` traffic recordings from various OSs and browsers that use or do not use PQC encryption. It also includes scripts that record the data, split it into flows, and collect the needed samples for the project.
@@ -79,18 +113,6 @@ For splitting the recorded traffic into each flow we're using:
 To transform each packet into processable data we're using [NFStream](https://www.nfstream.org/) - Flexible Network Data Analysis Framework.
 
 We run the models and analyze the data using [python](https://www.python.org/).
-
-## Workflow
-
-> [!NOTE]
-> All the steps below take a few minutes to complete, so don't worry and be patient.
-
-> [!IMPORTANT]
-> Run the automation script in each folder on their corresponding operating system.
-
-1. Run the automation script (`runner`) for each operating system, and wait until it finishes running.
-2. Run the `tdl_runner.py` in the `TDL/` directory — this step will generate a `.csv` file with all the processed data from the pcaps you've recorded before.
-3. Run `model-runner.py` in the main directory. This step trains and tests each model using the data generated in the previous step.
 
 ## Dependencies
 
